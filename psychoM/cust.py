@@ -1,4 +1,4 @@
-from chart import gen_points_in_constant_relative_humidity,GetStandardAtmPressure
+from cp.chart import gen_points_in_constant_relative_humidity,GetStandardAtmPressure
 from cp import PsychroChart, load_config
 
 
@@ -137,7 +137,7 @@ def construct(a = A,b = B,c = C):
 def pointsarrow(chartobj,A,B):
     a = (A[0],gen_points_in_constant_relative_humidity(A[0],A[1],GetStandardAtmPressure(900)))
     b = (B[0],gen_points_in_constant_relative_humidity(B[0],B[1],GetStandardAtmPressure(900)))
-    return chartobj._axes.annotate("",a,xytext=b,arrowprops=dict(arrowstyle='->'))
+    return chartobj._axes.annotate("",a,xytext=b,arrowprops=dict(width=2.0,fc='k'))
 
 def update(tar,a,b):
     tar._handlers_annotations.append(pointsarrow(tar,a,b))
